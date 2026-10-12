@@ -1,5 +1,5 @@
 -- 11 · Communes with at least 150 contracts
--- Grouped by commune code, not by name: 38,916 communes share only 35,572 names
+-- Grouped by commune code, the unique key of each commune
 SELECT region.com_nom_maj_court,
        region.Code_dep_code_commune,
        COUNT(contrat.Contrat_ID) AS contracts
