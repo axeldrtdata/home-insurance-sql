@@ -34,7 +34,3 @@ The database has two tables, linked by `Code_dep_code_commune`. Column names are
 
 - **Street addresses removed.** The original `contrat` table also held the street number, repetition index (`B_T_Q`), street type and street name of each insured home. Combined with a commune, a surface and a premium, an address can point to a person, so these four columns are not published.
 - **Column renamed back.** `Valeur_declaree_biens` is the name used in the source file. It had become `Valeur_declaree_mensuel` when the table was created, a misleading name since the column holds a band of value, not a monthly amount.
-
-## Known data issue
-
-Nine contracts in La Réunion carry their postcode (`97434`, `97460`, `97470`) instead of their commune code, so they match no row in `region` and disappear from every inner join. They are kept as they are and listed by `sql/13_data_quality_checks.sql`. SQLite only enforces foreign keys after `PRAGMA foreign_keys = ON`, which is why the load accepted them.
